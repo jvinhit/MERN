@@ -1,26 +1,11 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import React from 'react';
+import { Provider } from 'react-redux';
+import Router from './routes';
 
-import { NavBar } from '../components'
-import { MoviesList, MoviesInsert, MoviesUpdate } from '../pages'
+import createStore from './stores';
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-
-function App() {
-    return (
-        <Router>
-            <NavBar />
-            <Switch>
-                <Route path="/movies/list" exact component={MoviesList} />
-                <Route path="/movies/create" exact component={MoviesInsert} />
-                <Route
-                    path="/movies/update/:id"
-                    exact
-                    component={MoviesUpdate}
-                />
-            </Switch>
-        </Router>
-    )
-}
-
-export default App
+export default React.memo(() => (
+    <Provider store={createStore()}>
+        <Router />
+    </Provider>
+));

@@ -1,0 +1,18 @@
+@import '../../../../assets/styes/base';
+
+section {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    top: 170px;
+    min-height: calc(100% - #{$head_top} - #{$footer} - #{$header});
+    overflow: auto;
+
+    .main-content {
+        margin-left: 200px;
+        margin-bottom: 60px;
+        overflow: auto;
+        position: relative;
+        min-height: 100%;
+    }
+}
